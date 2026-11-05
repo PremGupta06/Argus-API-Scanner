@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Vulnerable Lab API
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+paths:
+  /login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username: {type: string}
+                password: {type: string}
+      responses:
+        '200': {description: OK}
+  /api/orders/{order_id}:
+    get:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: order_id, in: path, required: true, schema: {type: integer}}
+      responses:
+        '200': {description: OK}
+  /api/users/{user_id}:
+    get:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: user_id, in: path, required: true, schema: {type: integer}}
+      responses:
+        '200': {description: OK}
+    put:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: user_id, in: path, required: true, schema: {type: integer}}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username: {type: string}
+                email: {type: string}
+      responses:
+        '200': {description: OK}
+  /api/admin/stats:
+    get:
+      security: [{bearerAuth: []}]
+      responses:
+        '200': {description: OK}

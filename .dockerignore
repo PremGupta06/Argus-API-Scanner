@@ -1,0 +1,7 @@
+venv
+.git
+reports
+messages.jsonl
+**/node_modules
+**/__pycache__
+ui/dist

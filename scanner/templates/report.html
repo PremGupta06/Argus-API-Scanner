@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<title>API Security Report</title>
+<style>
+:root { --bg:#0d1117; --card:#161b22; --text:#e6edf3; --muted:#8b949e; --border:#30363d; }
+@media (prefers-color-scheme: light) {
+  :root { --bg:#f6f8fa; --card:#ffffff; --text:#1f2328; --muted:#59636e; --border:#d0d7de; }
+}
+body { margin:0; padding:2rem; background:var(--bg); color:var(--text); font-family:system-ui,sans-serif; line-height:1.5; }
+.wrap { max-width:960px; margin:0 auto; }
+.muted { color:var(--muted); font-size:.9rem; }
+.summary { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:1rem; margin:1.5rem 0; }
+.card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1rem; text-align:center; }
+.num { font-size:2rem; font-weight:700; }
+.finding { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:1rem 1.25rem; margin-bottom:1rem; }
+.badge { padding:2px 8px; border-radius:4px; font-size:.75rem; font-weight:700; color:#fff; margin-right:.5rem; }
+.critical { color:#ff4d4f; } .high { color:#f0883e; } .medium { color:#d29922; } .low { color:#58a6ff; } .info { color:#8b949e; }
+.badge.critical { background:#b62324; } .badge.high { background:#c2571a; } .badge.medium { background:#9a6700; }
+.badge.low { background:#1f6feb; } .badge.info { background:#6e7781; }
+pre { background:var(--bg); border:1px solid var(--border); padding:.75rem; border-radius:6px; overflow-x:auto; white-space:pre-wrap; }
+</style>
+</head>
+<body>
+<div class='wrap'>
+  <h1>API Security Scan Report</h1>
+  <p class='muted'>Target: {{ target }} &middot; Generated: {{ generated }}</p>
+  <div class='summary'>
+    {% for sev, n in summary.items() %}
+    <div class='card'><div class='num {{ sev }}'>{{ n }}</div>{{ sev | capitalize }}</div>
+    {% endfor %}
+  </div>
+  {% for f in findings %}
+  <div class='finding'>
+    <span class='badge {{ f.severity.value }}'>{{ f.severity.value | upper }}</span><strong>{{ f.title }}</strong>
+    <div class='muted'>{{ f.check_id }} &middot; {{ f.owasp }} &middot; <code>{{ f.endpoint }}</code></div>
+    <p>{{ f.description }}</p>
+    <pre>{{ f.evidence }}</pre>
+    <p><strong>Fix:</strong> {{ f.remediation }}</p>
+  </div>
+  {% else %}
+  <p>No findings.</p>
+  {% endfor %}
+</div>
+</body>
+</html>

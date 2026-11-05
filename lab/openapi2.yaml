@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+  title: Bank Lab API
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+paths:
+  /auth/login:
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                username: {type: string}
+                password: {type: string}
+      responses:
+        '200': {description: OK}
+  /api/accounts/{account_id}:
+    get:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: account_id, in: path, required: true, schema: {type: integer}}
+      responses:
+        '200': {description: OK}
+  /api/profile/{user_id}:
+    get:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: user_id, in: path, required: true, schema: {type: integer}}
+      responses:
+        '200': {description: OK}
+    patch:
+      security: [{bearerAuth: []}]
+      parameters:
+        - {name: user_id, in: path, required: true, schema: {type: integer}}
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: {type: string}
+                email: {type: string}
+      responses:
+        '200': {description: OK}
+  /api/reports/summary:
+    get:
+      security: [{bearerAuth: []}]
+      responses:
+        '200': {description: OK}
