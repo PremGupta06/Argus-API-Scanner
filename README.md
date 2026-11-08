@@ -172,10 +172,4 @@ python -m pytest
 - [ ] Docker Compose setup for the full stack
 - [ ] More checks: SSRF indicators, CORS misconfiguration
 
-## License
 
-MIT. Add a `LICENSE` file to the repo root (GitHub can generate one when you click **Add file** and then **Create new file** named `LICENSE`).
-
-## Author
-
-Built by **YOUR NAME**. [LinkedIn](https://www.linkedin.com/in/YOUR-PROFILE) | [GitHub](https://github.com/YOUR-USERNAME)
