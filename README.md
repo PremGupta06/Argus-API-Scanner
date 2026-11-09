@@ -1,4 +1,4 @@
-# APIScan
+# Argus APIScan
 
 **An API security scanner with a live dashboard.** Import an OpenAPI spec, run OWASP API Top 10 checks, and get a prioritised report with evidence and fixes.
 
@@ -21,10 +21,6 @@
 - **OpenAPI 3 import** from a file path, a URL or an upload
 - **Safe by default**: checks that modify data are opt-in ("aggressive mode")
 - **Two built-in vulnerable lab APIs** so you can try everything safely
-
-| Scan in progress | Results |
-|---|---|
-| ![Scanning](docs/screenshots/scanning.png) | ![Results](docs/screenshots/results.png) |
 
 ## Security checks
 
@@ -170,5 +166,3 @@ python -m pytest
 - [ ] JWT checks (algorithm none, weak secrets)
 - [ ] Docker Compose setup for the full stack
 - [ ] More checks: SSRF indicators, CORS misconfiguration
-
-
