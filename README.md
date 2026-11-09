@@ -4,8 +4,7 @@
 
 [**Live demo**](https://argus-api-scanner.onrender.com/) | [Report a bug](https://github.com/YOUR-USERNAME/YOUR-REPO/issues)
 
-![Landing page](Landing page.jpeg
-)
+![Landing page](Landing%20page.jpeg)
 
 > **Legal and ethical use:** only scan APIs you own or have written permission to test.
 
