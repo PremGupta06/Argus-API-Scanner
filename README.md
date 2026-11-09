@@ -2,7 +2,7 @@
 
 **An API security scanner with a live dashboard.** Import an OpenAPI spec, run OWASP API Top 10 checks, and get a prioritised report with evidence and fixes.
 
-[**Live demo**](https://YOUR-APP.onrender.com) | [Report a bug](https://github.com/YOUR-USERNAME/YOUR-REPO/issues)
+[**Live demo**](https://argus-api-scanner.onrender.com/) | [Report a bug](https://github.com/YOUR-USERNAME/YOUR-REPO/issues)
 
 ![Landing page](<img width="1493" height="881" alt="{830FFC02-E502-43CB-8868-588D24E80102}" src="https://github.com/user-attachments/assets/3fd27fcf-8f73-4f52-bdca-7e1b87afc865" />
 )
